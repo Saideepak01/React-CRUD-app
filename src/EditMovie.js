@@ -29,7 +29,7 @@ export function EditMovie() {
         setRating(mv.imdb);
       });
   }, [id]);
-
+  
   const editMovie = () => {
     const editedMovie = {
       name: movieName,
