@@ -33,7 +33,6 @@ export function AddMovie() {
       imdb: rating,
     };
     createMovie(newMovie);
-    history.push("/movies");
   };
 
   const styles = { margin: "1rem 0 0 1rem" };
