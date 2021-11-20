@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Route,
-  Link,
-  Switch,
-} from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -17,6 +13,7 @@ import { AdditionalDetails } from "./AdditionalDetails";
 import { EditMovie } from "./EditMovie";
 import { MovieCollections } from "./MovieCollections";
 import { AddMovie } from "./AddMovie";
+import { Formik } from "formik";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -69,8 +66,8 @@ export default function App() {
               <AddMovie />
             </Route>
             <Route path="/about">
-              {/* <About /> */}
-              <h1 className="title">🐱‍💻</h1>
+              <About />
+              {/* <h1 className="title">🐱‍💻</h1> */}
             </Route>
           </Switch>
         </div>
@@ -79,4 +76,22 @@ export default function App() {
   );
 }
 
-
+function About() {
+  const aboutForm = (values) => {};
+  return (
+    <div>
+      <Formik
+        initialValues={{ email: "test1", password: "" }}
+        validate={aboutForm}
+        onSubmit={(values) => {}}
+      >
+        {(formik) => (
+          <form>
+            <input type="email" value={formik.values.email} />
+            <input type="password" value={formik.values.password} />
+          </form>
+        )}
+      </Formik>
+    </div>
+  );
+}
