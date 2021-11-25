@@ -28,28 +28,30 @@ export function MovieCollections() {
   useEffect(getMovies, []);
   return (
     <div>
-      {movies.map((mv) => (
-        <Poster
-          key={mv.id}
-          name={mv.name}
-          imgs={mv.poster}
-          story={mv.description}
-          rating={mv.imdb}
-          deleteMovie={<IconButton
-            color="error"
-            onClick={() => deleteMovie(mv.id)}
-          >
-            <DeleteIcon />
-          </IconButton>}
-          editMovie={<IconButton
-            style={{ marginLeft: "auto" }}
-            color="primary"
-            onClick={() => history.push("/movies/editMovie/" + mv.id)}
-          >
-            <EditIcon />
-          </IconButton>}
-          id={mv.id} />
-      ))}
+      <section style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
+        {movies.map((mv) => (
+          <Poster
+            key={mv.id}
+            name={mv.name}
+            imgs={mv.poster}
+            story={mv.description}
+            rating={mv.imdb}
+            deleteMovie={<IconButton
+              color="error"
+              onClick={() => deleteMovie(mv.id)}
+            >
+              <DeleteIcon />
+            </IconButton>}
+            editMovie={<IconButton
+              style={{ marginLeft: "auto" }}
+              color="primary"
+              onClick={() => history.push("/movies/editMovie/" + mv.id)}
+            >
+              <EditIcon />
+            </IconButton>}
+            id={mv.id} />
+        ))}
+      </section>
     </div>
   );
 }
