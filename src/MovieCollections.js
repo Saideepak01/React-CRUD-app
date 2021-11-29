@@ -5,13 +5,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { Poster } from "./Poster";
 
+const API_URL = "https://movies-api101.herokuapp.com";
+// const API_URL = "https://6125e6d32d4e0d0017b6c4f9.mockapi.io";
+
 export function MovieCollections() {
   const history = useHistory();
 
   const [movies, setMovies] = useState([]);
 
   const getMovies = () => {
-    fetch("https://6125e6d32d4e0d0017b6c4f9.mockapi.io/movies", {
+    fetch(`${API_URL}/movies`, {
       method: "GET",
     })
       .then((data) => data.json())
@@ -19,7 +22,7 @@ export function MovieCollections() {
   };
 
   const deleteMovie = (id) => {
-    fetch("https://6125e6d32d4e0d0017b6c4f9.mockapi.io/movies/" + id, {
+    fetch(`${API_URL}/movies/` + id, {
       method: "DELETE",
     })
       .then((data) => data.json())

@@ -3,6 +3,9 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
+const API_URL = "https://movies-api101.herokuapp.com";
+// const API_URL = "https://6125e6d32d4e0d0017b6c4f9.mockapi.io";
+
 export function AddMovie() {
   const history = useHistory();
 
@@ -13,7 +16,7 @@ export function AddMovie() {
   const [rating, setRating] = useState("");
 
   const createMovie = (newMovie) => {
-    fetch("https://6125e6d32d4e0d0017b6c4f9.mockapi.io/movies", {
+    fetch(`${API_URL}/movies`, {
       method: "POST",
       body: JSON.stringify(newMovie),
       headers: {

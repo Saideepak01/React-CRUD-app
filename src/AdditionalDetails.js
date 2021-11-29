@@ -6,13 +6,16 @@ import { useState, useEffect } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Button from "@mui/material/Button";
 
+const API_URL = "https://movies-api101.herokuapp.com";
+// const API_URL = "https://6125e6d32d4e0d0017b6c4f9.mockapi.io";
+
 export function AdditionalDetails() {
   const { id } = useParams();
 
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    fetch("https://6125e6d32d4e0d0017b6c4f9.mockapi.io/movies/" + id, {
+    fetch(`${API_URL}/movies/` + id, {
       method: "GET",
     })
       .then((data) => data.json())

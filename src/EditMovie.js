@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
+const API_URL = "https://movies-api101.herokuapp.com";
+// const API_URL = "https://6125e6d32d4e0d0017b6c4f9.mockapi.io";
+
 export function EditMovie() {
   const { id } = useParams();
   const history = useHistory();
@@ -17,7 +20,7 @@ export function EditMovie() {
   const [rating, setRating] = useState("");
 
   useEffect(() => {
-    fetch("https://6125e6d32d4e0d0017b6c4f9.mockapi.io/movies/" + id, {
+    fetch(`${API_URL}/movies/` + id, {
       method: "GET",
     })
       .then((data) => data.json())
@@ -43,7 +46,7 @@ export function EditMovie() {
   };
 
   const updateMovie = (editedMovie) => {
-    fetch("https://6125e6d32d4e0d0017b6c4f9.mockapi.io/movies/" + id, {
+    fetch(`${API_URL}/movies/` + id, {
       method: "PUT",
       body: JSON.stringify(editedMovie),
       headers: {
